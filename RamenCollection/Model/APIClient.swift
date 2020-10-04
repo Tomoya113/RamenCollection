@@ -8,7 +8,7 @@
 
 import Foundation
 class APIClient {
-    func request<T: Requestable>(_ requestable: T, completion: @escaping(T.Model?) -> T.Model) {
+    func request<T: Requestable>(_ requestable: T, completion: @escaping(T.Model?) -> Void) {
         guard let request = requestable.urlRequest else { return }
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -77,8 +77,51 @@ struct TestRequest: Requestable {
     }
 }
 
+struct CreateUser: Codable {
+    var id: Int
+}
 
+struct CreateUserRequest: Requestable {
+    
+    typealias Model = CreateUser
+    
+    var url: String {
+        return "https://ramen-collection-api.herokuapp.com/api/v1/users/new"
+    }
+    
+    var httpMethod: String {
+        return "GET"
+    }
+    
+    func decode(from data: Data) throws -> CreateUser {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(CreateUser.self, from: data)
+    }
+}
 
+struct Stations: Codable {
+    var name: String
+}
+
+struct GetStationsRequest: Requestable {
+    
+    typealias Model = [Stations]
+    
+    var url: String {
+        return "https://ramen-collection-api.herokuapp.com/api/v1/stations/get_all"
+    }
+    
+    var httpMethod: String {
+        return "GET"
+    }
+    
+    func decode(from data: Data) throws -> [Stations] {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([Stations].self, from: data)
+    }
+}
 
 
 

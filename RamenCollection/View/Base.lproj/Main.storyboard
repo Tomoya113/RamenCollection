@@ -39,21 +39,79 @@
             </objects>
             <point key="canvasLocation" x="303" y="202"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="FVp-2n-WaT">
             <objects>
                 <viewController id="6MK-QE-CkO" customClass="HomeViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IFz-12-mIK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-tj-bmw">
+                                <rect key="frame" x="20" y="307.5" width="374" height="68.5"/>
+                                <string key="text">駅がまだ登録されていません！最寄りの駅を登録して近くのラーメン屋を探してみましょう!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNP-m8-Mh2">
+                                <rect key="frame" x="157" y="410" width="100" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="Ffj-2m-wsW"/>
+                                    <constraint firstAttribute="width" constant="100" id="PFY-yV-ddg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="登録する"/>
+                                <connections>
+                                    <segue destination="zQm-gN-fFC" kind="show" id="i2y-br-JQK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SNP-m8-Mh2" firstAttribute="centerY" secondItem="IFz-12-mIK" secondAttribute="centerY" id="1zK-wZ-804"/>
+                            <constraint firstItem="lRL-tj-bmw" firstAttribute="leading" secondItem="iXY-Xy-M7K" secondAttribute="leading" constant="20" id="BmE-H5-KPE"/>
+                            <constraint firstItem="SNP-m8-Mh2" firstAttribute="centerX" secondItem="IFz-12-mIK" secondAttribute="centerX" id="QAh-mb-Dlc"/>
+                            <constraint firstItem="SNP-m8-Mh2" firstAttribute="top" secondItem="lRL-tj-bmw" secondAttribute="bottom" constant="34" id="fOL-Xr-rUj"/>
+                            <constraint firstItem="lRL-tj-bmw" firstAttribute="centerX" secondItem="IFz-12-mIK" secondAttribute="centerX" id="uBB-Kn-1GV"/>
+                            <constraint firstItem="iXY-Xy-M7K" firstAttribute="trailing" secondItem="lRL-tj-bmw" secondAttribute="trailing" constant="20" id="ykJ-Wm-c1c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iXY-Xy-M7K"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="pencil" catalog="system" id="Vcl-gC-1RB"/>
+                    <navigationItem key="navigationItem" id="SRP-en-pLf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-7S-unB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="-518"/>
+            <point key="canvasLocation" x="1213.0434782608697" y="-518.30357142857144"/>
+        </scene>
+        <!--駅を登録-->
+        <scene sceneID="xEa-LH-uNd">
+            <objects>
+                <tableViewController id="zQm-gN-fFC" customClass="SelectStationTableViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T7F-Zc-Yvf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="W5w-5x-csH">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W5w-5x-csH" id="gE0-wb-owD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zQm-gN-fFC" id="UIu-cX-oVc"/>
+                            <outlet property="delegate" destination="zQm-gN-fFC" id="bum-gr-2Nb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="駅を登録" id="bvH-ux-91Y"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bh-rA-jT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988" y="-518"/>
         </scene>
         <!--Custom Tab Bar-->
         <scene sceneID="f3x-it-s1J">
@@ -66,7 +124,7 @@
                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6MK-QE-CkO" kind="relationship" relationship="viewControllers" id="JfM-nZ-VgA"/>
+                        <segue destination="0cy-aB-gAH" kind="relationship" relationship="viewControllers" id="JfM-nZ-VgA"/>
                         <segue destination="FHq-Gh-Z5b" kind="relationship" relationship="viewControllers" id="h6I-j0-6dA"/>
                         <segue destination="70B-I7-qjc" kind="relationship" relationship="viewControllers" id="7Oc-Xy-Lau"/>
                     </connections>
@@ -74,6 +132,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiT-65-72G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1061" y="309"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="XMp-Ls-FEX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0cy-aB-gAH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="pencil" catalog="system" id="Vcl-gC-1RB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X3R-5G-6Q1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6MK-QE-CkO" kind="relationship" relationship="rootViewController" id="0Pg-SC-osC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aj6-XY-71P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302.89855072463769" y="-518.30357142857144"/>
         </scene>
     </scenes>
     <resources>

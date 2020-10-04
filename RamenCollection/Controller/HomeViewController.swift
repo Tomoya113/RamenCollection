@@ -12,14 +12,18 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = UserDefaults.standard.string(forKey: "id")
+        if currentUser == nil {
+            let request = CreateUserRequest()
+            APIClient().request(request, completion: {model in
+                print(model!.id)
+                UserDefaults.standard.set(String(model!.id), forKey: "id")
+            })
+        } else {
+            print(currentUser!)
+        }
         
-        let request = TestRequest()
-        var hoge: String = ""
-        let result = APIClient().request(request, completion: {model in
-            print(model!.test)
-            return model!
-        })
-        print(result)
+       
     }
 
 
