@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		71DB0A6D252A30BC0081EE00 /* SelectStationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A6C252A30BC0081EE00 /* SelectStationTableViewController.swift */; };
+		71DB0A6F252A67430081EE00 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A6E252A67430081EE00 /* MapViewController.swift */; };
+		71DB0A71252A6F610081EE00 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A70252A6F610081EE00 /* Shop.swift */; };
+		71DB0A73252A6F6E0081EE00 /* ShopViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A72252A6F6E0081EE00 /* ShopViews.swift */; };
 		71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12D62529E472008AD9DE /* AppDelegate.swift */; };
 		71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12D82529E472008AD9DE /* SceneDelegate.swift */; };
 		71DB12DB2529E472008AD9DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12DA2529E472008AD9DE /* HomeViewController.swift */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		71DB0A6C252A30BC0081EE00 /* SelectStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStationTableViewController.swift; sourceTree = "<group>"; };
+		71DB0A6E252A67430081EE00 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		71DB0A70252A6F610081EE00 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		71DB0A72252A6F6E0081EE00 /* ShopViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViews.swift; sourceTree = "<group>"; };
 		71DB12D32529E472008AD9DE /* RamenCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamenCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DB12D62529E472008AD9DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71DB12D82529E472008AD9DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 				71DB12DA2529E472008AD9DE /* HomeViewController.swift */,
 				71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */,
 				71DB0A6C252A30BC0081EE00 /* SelectStationTableViewController.swift */,
+				71DB0A6E252A67430081EE00 /* MapViewController.swift */,
+				71DB0A70252A6F610081EE00 /* Shop.swift */,
+				71DB0A72252A6F6E0081EE00 /* ShopViews.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,11 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */,
+				71DB0A73252A6F6E0081EE00 /* ShopViews.swift in Sources */,
 				71DB12DB2529E472008AD9DE /* HomeViewController.swift in Sources */,
 				71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */,
 				71DB12F1252A0D1B008AD9DE /* APIClient.swift in Sources */,
 				71DB0A6D252A30BC0081EE00 /* SelectStationTableViewController.swift in Sources */,
 				71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */,
+				71DB0A6F252A67430081EE00 /* MapViewController.swift in Sources */,
+				71DB0A71252A6F610081EE00 /* Shop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

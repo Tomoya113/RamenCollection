@@ -14,18 +14,19 @@ class SelectStationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let request = GetStationsRequest()
-        DispatchQueue.global(qos: .userInitiated).async {
-            APIClient().request(request, completion: {model in
-                model!.forEach { station in
-                    print(station.name)
-                    self.array.append(station.name)
-                }
-            })
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+//        let queue = DispatchQueue.global(qos: .default)
+//        queue.sync {
+        let semaphore = DispatchSemaphore(value: 0)
+        APIClient().request(request, completion: {model in
+            model!.forEach { station in
+                print(station.name)
+                self.array.append(station.name)
             }
-        }
+            semaphore.signal()
+        })
+        semaphore.wait()
+        print(array)
+        self.tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,14 +37,14 @@ class SelectStationTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return array.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

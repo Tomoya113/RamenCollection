@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTR-qY-euh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="202"/>
+            <point key="canvasLocation" x="302.89855072463769" y="201.5625"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="FVp-2n-WaT">
@@ -132,6 +132,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiT-65-72G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1061" y="309"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="RWE-nN-BJ1">
+            <objects>
+                <viewController id="mhl-sv-ctx" customClass="MapViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zZw-0X-YVx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XXd-uQ-Rvh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2lL-HC-rcF"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="XXd-uQ-Rvh" id="nGT-Yj-nF0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnt-WP-uWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1062" y="-416"/>
         </scene>
         <!--Home-->
         <scene sceneID="XMp-Ls-FEX">
