@@ -13,6 +13,7 @@
 		71DB12DE2529E472008AD9DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12DC2529E472008AD9DE /* Main.storyboard */; };
 		71DB12E02529E475008AD9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12DF2529E475008AD9DE /* Assets.xcassets */; };
 		71DB12E32529E475008AD9DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12E12529E475008AD9DE /* LaunchScreen.storyboard */; };
+		71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		71DB12DF2529E475008AD9DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71DB12E22529E475008AD9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71DB12E42529E475008AD9DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				71DB12D62529E472008AD9DE /* AppDelegate.swift */,
 				71DB12D82529E472008AD9DE /* SceneDelegate.swift */,
 				71DB12DA2529E472008AD9DE /* ViewController.swift */,
+				71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */,
 				71DB12DC2529E472008AD9DE /* Main.storyboard */,
 				71DB12DF2529E475008AD9DE /* Assets.xcassets */,
 				71DB12E12529E475008AD9DE /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */,
 				71DB12DB2529E472008AD9DE /* ViewController.swift in Sources */,
 				71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */,
 				71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */,
