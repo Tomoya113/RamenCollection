@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Prize-->
         <scene sceneID="igk-ej-6q0">
             <objects>
                 <viewController id="70B-I7-qjc" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RTC-1F-WdD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="trash" catalog="system" id="J8D-VR-q6L"/>
+                    <tabBarItem key="tabBarItem" title="Prize" image="trash" catalog="system" id="J8D-VR-q6L"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1h-ce-cr8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="897"/>
         </scene>
-        <!--Item 2-->
+        <!--Ramen-->
         <scene sceneID="REu-ne-wS9">
             <objects>
                 <viewController id="FHq-Gh-Z5b" sceneMemberID="viewController">
@@ -33,23 +33,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iRz-s1-7uB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="square.and.arrow.up" catalog="system" id="Nlj-Cb-rHK"/>
+                    <tabBarItem key="tabBarItem" title="Ramen" image="square.and.arrow.up" catalog="system" id="Nlj-Cb-rHK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTR-qY-euh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="202"/>
         </scene>
-        <!--Item 1-->
+        <!--Home-->
         <scene sceneID="FVp-2n-WaT">
             <objects>
-                <viewController id="6MK-QE-CkO" sceneMemberID="viewController">
+                <viewController id="6MK-QE-CkO" customClass="HomeViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IFz-12-mIK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iXY-Xy-M7K"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="pencil" catalog="system" id="Vcl-gC-1RB"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="pencil" catalog="system" id="Vcl-gC-1RB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-7S-unB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

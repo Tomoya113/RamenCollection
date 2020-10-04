@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12D62529E472008AD9DE /* AppDelegate.swift */; };
 		71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12D82529E472008AD9DE /* SceneDelegate.swift */; };
-		71DB12DB2529E472008AD9DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12DA2529E472008AD9DE /* ViewController.swift */; };
+		71DB12DB2529E472008AD9DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12DA2529E472008AD9DE /* HomeViewController.swift */; };
 		71DB12DE2529E472008AD9DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12DC2529E472008AD9DE /* Main.storyboard */; };
 		71DB12E02529E475008AD9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12DF2529E475008AD9DE /* Assets.xcassets */; };
 		71DB12E32529E475008AD9DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DB12E12529E475008AD9DE /* LaunchScreen.storyboard */; };
 		71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */; };
+		71DB12F1252A0D1B008AD9DE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB12F0252A0D1B008AD9DE /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71DB12D32529E472008AD9DE /* RamenCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamenCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DB12D62529E472008AD9DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71DB12D82529E472008AD9DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		71DB12DA2529E472008AD9DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		71DB12DA2529E472008AD9DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		71DB12DD2529E472008AD9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71DB12DF2529E475008AD9DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71DB12E22529E475008AD9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71DB12E42529E475008AD9DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		71DB12F0252A0D1B008AD9DE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		71DB12D52529E472008AD9DE /* RamenCollection */ = {
 			isa = PBXGroup;
 			children = (
-				71DB12D62529E472008AD9DE /* AppDelegate.swift */,
-				71DB12D82529E472008AD9DE /* SceneDelegate.swift */,
-				71DB12DA2529E472008AD9DE /* ViewController.swift */,
-				71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */,
-				71DB12DC2529E472008AD9DE /* Main.storyboard */,
+				71DB12EF252A0B03008AD9DE /* View */,
+				71DB12EE252A0AF9008AD9DE /* Model */,
+				71DB12ED252A0A4B008AD9DE /* Controller */,
 				71DB12DF2529E475008AD9DE /* Assets.xcassets */,
 				71DB12E12529E475008AD9DE /* LaunchScreen.storyboard */,
 				71DB12E42529E475008AD9DE /* Info.plist */,
 			);
 			path = RamenCollection;
+			sourceTree = "<group>";
+		};
+		71DB12ED252A0A4B008AD9DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				71DB12D62529E472008AD9DE /* AppDelegate.swift */,
+				71DB12D82529E472008AD9DE /* SceneDelegate.swift */,
+				71DB12DA2529E472008AD9DE /* HomeViewController.swift */,
+				71DB12EA2529F1D9008AD9DE /* CustomTabBar.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		71DB12EE252A0AF9008AD9DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71DB12F0252A0D1B008AD9DE /* APIClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71DB12EF252A0B03008AD9DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71DB12DC2529E472008AD9DE /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +169,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */,
-				71DB12DB2529E472008AD9DE /* ViewController.swift in Sources */,
+				71DB12DB2529E472008AD9DE /* HomeViewController.swift in Sources */,
 				71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */,
+				71DB12F1252A0D1B008AD9DE /* APIClient.swift in Sources */,
 				71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
