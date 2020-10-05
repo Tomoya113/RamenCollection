@@ -13,26 +13,41 @@ class SelectStationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = GetStationsRequest()
-//        let queue = DispatchQueue.global(qos: .default)
-//        queue.sync {
-        let semaphore = DispatchSemaphore(value: 0)
-        APIClient().request(request, completion: {model in
-            model!.forEach { station in
-                print(station.name)
-                self.array.append(station.name)
-            }
-            semaphore.signal()
-        })
-        semaphore.wait()
-        print(array)
-        self.tableView.reloadData()
+            
+//        let request = GetStationsRequest()
+        
+//        let group = DispatchGroup()
+//        let queue = DispatchQueue(label: "queue")
+//        group.enter()
+//        queue.async(group: group) {
+//            APIClient().request(request, completion: {model in
+//                model!.forEach { station in
+//                    self.array.append(station.name)
+//                }
+//                group.leave()
+//            })
+//        }
+//
+//        group.notify(queue: DispatchQueue.main) { [weak self] in
+//            self!.tableView.reloadData()
+//        }
+        
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        self.setup(completion: {(result) in
+            DispatchQueue.main.async {
+                self.array = result
+                self.tableView.reloadData()
+            }
+        
+        })
     }
 
     // MARK: - Table view data source
@@ -41,6 +56,20 @@ class SelectStationTableViewController: UITableViewController {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0
 //    }
+    func setup(completion: @escaping ([String]) -> ()) {
+        print("start")
+        let request = GetStationsRequest()
+        APIClient().request(request, completion: {model in
+            model!.forEach { station in
+                self.array.append(station.name)
+            }
+        })
+        DispatchQueue.main.async {
+           completion(result)
+        }
+    }
+    
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
