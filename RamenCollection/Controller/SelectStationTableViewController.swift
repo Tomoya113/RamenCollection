@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectStationTableViewController: UITableViewController {
-    var array: [String] = []
+    var array: [Stations] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,32 +41,17 @@ class SelectStationTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
-        self.setup(completion: {(result) in
-            DispatchQueue.main.async {
-                self.array = result
-                self.tableView.reloadData()
-            }
-        
-        })
+        self.setup()
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-    func setup(completion: @escaping ([String]) -> ()) {
-        print("start")
+    func setup() -> Void {
         let request = GetStationsRequest()
         APIClient().request(request, completion: {model in
-            model!.forEach { station in
-                self.array.append(station.name)
+            DispatchQueue.main.async {
+                self.array = model!
+                self.tableView.reloadData()
             }
         })
-        DispatchQueue.main.async {
-           completion(result)
-        }
     }
     
 
@@ -79,7 +64,7 @@ class SelectStationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel!.text = array[indexPath.row]
+        cell.textLabel!.text = array[indexPath.row].name
         
 
         return cell
