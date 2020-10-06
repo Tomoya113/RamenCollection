@@ -102,12 +102,13 @@ struct CreateUserRequest: Requestable {
 
 struct Stations: Codable {
     var name: String
+    var id: Int
 }
 
 struct GetStationsRequest: Requestable {
     
     typealias Model = [Stations]
-    
+
     var url: String {
         return "https://ramen-collection-api.herokuapp.com/api/v1/stations/get_all"
     }
@@ -124,4 +125,63 @@ struct GetStationsRequest: Requestable {
 }
 
 
+
+struct RegisterStation: Codable {
+    var status: String
+}
+
+struct RegisterStationRequest: Requestable {
+    typealias Model = [RegisterStation]
+    var userId: String
+    var stationId: String
+    
+    init(userId: String, stationId: String) {
+        
+        self.userId = userId
+        self.stationId = stationId
+    }
+    
+    var url: String {
+        return "https://ramen-collection-api.herokuapp.com/api/v1/station_users/register/\(self.userId)/\(self.stationId)"
+    }
+    
+    var httpMethod: String {
+        return "POST"
+    }
+    
+    func decode(from data: Data) throws -> [RegisterStation] {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([RegisterStation].self, from: data)
+    }
+}
+
+struct UserStations: Codable {
+	var name: String
+	var id: Int
+}
+
+struct UserStationsRequest: Requestable {
+	typealias Model = [UserStations]
+    var userId: String
+    
+    init(userId: String) {
+        
+        self.userId = userId
+    }
+    
+    var url: String {
+        return "https://ramen-collection-api.herokuapp.com/api/v1/users/get_stations/\(self.userId)"
+    }
+    
+    var httpMethod: String {
+        return "GET"
+    }
+    
+    func decode(from data: Data) throws -> [UserStations] {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode([UserStations].self, from: data)
+    }
+}
 
