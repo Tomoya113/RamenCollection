@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class StationTableViewController: UITableViewController {
 	var array: [UserStations] = []
     override func viewDidLoad() {
         super.viewDidLoad()
