@@ -22,6 +22,7 @@ class PrizeCollectionViewController: UICollectionViewController {
 		self.collectionView.register(UINib(nibName: "PrizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+		layout.itemSize = CGSize(width: 100, height: 100)
 		self.collectionView.collectionViewLayout = layout
     }
 
@@ -56,11 +57,27 @@ class PrizeCollectionViewController: UICollectionViewController {
         return cell
     }
 	
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let horizontalSpace : CGFloat = 20
-        let cellSize : CGFloat = self.view.bounds.width / 3 - horizontalSpace
-        return CGSize(width: cellSize, height: cellSize)
-    }
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		print(indexPath)
+		performSegue(withIdentifier: "toShopTableController", sender: nil)
+	}
+	
+//	   override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+//		   if (segue.identifier == "toShopTableController") {
+//			   let subVC: ShopResultTableViewController = (segue.destination as? ShopResultTableViewController)!
+//	
+//			   // SubViewController のselectedImgに選択された画像を設定する
+////			   subVC.selectedImg = selectedImage
+//		   }
+//	   }
+	
+	
+//    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let horizontalSpace : CGFloat = 10
+////        let cellSize : CGFloat = self.view.bounds.width / 3 - horizontalSpace
+//		let cellSize : CGFloat = 100
+//        return CGSize(width: cellSize, height: cellSize)
+//    }
 
     // MARK: UICollectionViewDelegate
 

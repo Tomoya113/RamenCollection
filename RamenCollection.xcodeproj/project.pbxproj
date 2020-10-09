@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717B686925303F8A0053B605 /* GetShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B686825303F8A0053B605 /* GetShops.swift */; };
 		719FDFAA252CC05D00A3B1AC /* StationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFA9252CC05D00A3B1AC /* StationTableViewController.swift */; };
 		719FDFAC252CC6C100A3B1AC /* ShopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFAB252CC6C100A3B1AC /* ShopTableViewController.swift */; };
 		719FDFAE252CCE9200A3B1AC /* PrizeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFAD252CCE9200A3B1AC /* PrizeCollectionViewController.swift */; };
 		719FDFB3252CED7500A3B1AC /* PrizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFB1252CED7500A3B1AC /* PrizeCollectionViewCell.swift */; };
 		719FDFB4252CED7500A3B1AC /* PrizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 719FDFB2252CED7500A3B1AC /* PrizeCollectionViewCell.xib */; };
+		719FDFB6252D861C00A3B1AC /* ShopResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFB5252D861C00A3B1AC /* ShopResultTableViewController.swift */; };
 		71DB0A6D252A30BC0081EE00 /* SelectStationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A6C252A30BC0081EE00 /* SelectStationTableViewController.swift */; };
 		71DB0A6F252A67430081EE00 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A6E252A67430081EE00 /* MapViewController.swift */; };
 		71DB0A71252A6F610081EE00 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB0A70252A6F610081EE00 /* Shop.swift */; };
@@ -27,11 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		717B686825303F8A0053B605 /* GetShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShops.swift; sourceTree = "<group>"; };
 		719FDFA9252CC05D00A3B1AC /* StationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewController.swift; sourceTree = "<group>"; };
 		719FDFAB252CC6C100A3B1AC /* ShopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewController.swift; sourceTree = "<group>"; };
 		719FDFAD252CCE9200A3B1AC /* PrizeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeCollectionViewController.swift; sourceTree = "<group>"; };
 		719FDFB1252CED7500A3B1AC /* PrizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeCollectionViewCell.swift; sourceTree = "<group>"; };
 		719FDFB2252CED7500A3B1AC /* PrizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrizeCollectionViewCell.xib; sourceTree = "<group>"; };
+		719FDFB5252D861C00A3B1AC /* ShopResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResultTableViewController.swift; sourceTree = "<group>"; };
 		71DB0A6C252A30BC0081EE00 /* SelectStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStationTableViewController.swift; sourceTree = "<group>"; };
 		71DB0A6E252A67430081EE00 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		71DB0A70252A6F610081EE00 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				719FDFAD252CCE9200A3B1AC /* PrizeCollectionViewController.swift */,
 				719FDFB1252CED7500A3B1AC /* PrizeCollectionViewCell.swift */,
 				719FDFB2252CED7500A3B1AC /* PrizeCollectionViewCell.xib */,
+				719FDFB5252D861C00A3B1AC /* ShopResultTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				71DB12F0252A0D1B008AD9DE /* APIClient.swift */,
+				717B686825303F8A0053B605 /* GetShops.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				719FDFB6252D861C00A3B1AC /* ShopResultTableViewController.swift in Sources */,
 				71DB12EB2529F1D9008AD9DE /* CustomTabBar.swift in Sources */,
 				71DB0A73252A6F6E0081EE00 /* ShopViews.swift in Sources */,
 				71DB12DB2529E472008AD9DE /* HomeViewController.swift in Sources */,
@@ -203,6 +210,7 @@
 				719FDFAA252CC05D00A3B1AC /* StationTableViewController.swift in Sources */,
 				71DB12D72529E472008AD9DE /* AppDelegate.swift in Sources */,
 				71DB12F1252A0D1B008AD9DE /* APIClient.swift in Sources */,
+				717B686925303F8A0053B605 /* GetShops.swift in Sources */,
 				71DB0A6D252A30BC0081EE00 /* SelectStationTableViewController.swift in Sources */,
 				719FDFAC252CC6C100A3B1AC /* ShopTableViewController.swift in Sources */,
 				719FDFB3252CED7500A3B1AC /* PrizeCollectionViewCell.swift in Sources */,

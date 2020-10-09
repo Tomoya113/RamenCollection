@@ -9,15 +9,16 @@
 import UIKit
 
 class ShopTableViewController: UITableViewController {
-
-	var array: [UserStations] = []
+	var hoge: String = ""
+	var array: GetShops = GetShops(shop: [], shopUserStatus: [])
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let userId = UserDefaults.standard.string(forKey: "id")
-		let request = UserStationsRequest(userId: userId!)
+		let request = GetShopsRequest(userId: userId!, stationId: "11")
 		APIClient().request(request, completion: {model in
 			DispatchQueue.main.async {
-				self.array = model!
+				self.array.shop = model!.shop
+				self.array.shopUserStatus = model!.shopUserStatus
 				self.tableView.reloadData()
 			}
 		})
@@ -33,14 +34,15 @@ class ShopTableViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// #warning Incomplete implementation, return the number of rows
-		return array.count
+		return array.shop.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		
-		cell.textLabel!.text = array[indexPath.row].name
-		cell.tag = array[indexPath.row].id
+//		print(array.shop[indexPath.row])
+//		print(array.shopUserStatus)
+		cell.textLabel!.text = array.shop[indexPath.row].name
+		cell.tag = array.shopUserStatus[indexPath.row].id
 		let stationImage = UIImage(named: "OrangeStation.png")!
 		cell.imageView!.image = stationImage.resize(size: CGSize(width: 50, height: 50))
 		return cell
@@ -67,6 +69,27 @@ class ShopTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		cell.separatorInset = .zero
 	}
+	
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        // シェアのアクションを設定する
+        let doneAction = UIContextualAction(style: .normal  , title: "完食") {
+            (ctxAction, view, completionHandler) in
+             print("シェアを実行する")
+            completionHandler(true)
+        }
+        // シェアボタンのデザインを設定する
+//        let doneImage = UIImage(systemName: "square.and.arrow.up")?.withTintColor(UIColor.white, renderingMode: .alwaysTemplate)
+//        doneAction.image = doneImage
+        doneAction.backgroundColor = UIColor(red: 249/255, green: 171/255, blue: 24/255, alpha: 1.0)
+
+        // スワイプでの削除を無効化して設定する
+        let swipeAction = UISwipeActionsConfiguration(actions:[doneAction])
+        swipeAction.performsFirstActionWithFullSwipe = false
+       
+        return swipeAction
+
+    }
 
 	/*
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

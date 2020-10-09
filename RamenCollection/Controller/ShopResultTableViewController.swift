@@ -1,5 +1,5 @@
 //
-//  ListTableViewController.swift
+//  ShopResultTableViewController.swift
 //  RamenCollection
 //
 //  Created by tomoya tanaka on 2020/10/07.
@@ -8,18 +8,10 @@
 
 import UIKit
 
-class StationTableViewController: UITableViewController {
-	var array: [UserStations] = []
+class ShopResultTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-		let userId = UserDefaults.standard.string(forKey: "id")
-		let request = UserStationsRequest(userId: userId!)
-		APIClient().request(request, completion: {model in
-			DispatchQueue.main.async {
-				self.array = model!
-				self.tableView.reloadData()
-			}
-		})
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,42 +22,15 @@ class StationTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		// #warning Incomplete implementation, return the number of rows
-		return array.count
-	}
-	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		
-		cell.textLabel!.text = array[indexPath.row].name
-		cell.tag = array[indexPath.row].id
-		let stationImage = UIImage(named: "OrangeStation.png")!
-		cell.imageView!.image = stationImage.resize(size: CGSize(width: 50, height: 50))
-		return cell
-		
-	}
-	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-		performSegue(withIdentifier: "toShopTableViewController", sender: nil)
-		
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-		if (segue.identifier == "toShopTableViewController") {
-			let nextVC: ShopTableViewController = (segue.destination as? ShopTableViewController)!
-			nextVC.hoge = "hoge"
-		}
-	}
-	
-	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 80
-	}
-	
-	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		cell.separatorInset = .zero
-	}
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
