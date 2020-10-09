@@ -20,6 +20,7 @@ struct ShopName: Codable {
 
 struct ShopUserStatus: Codable {	
 	var id: Int
+	var shopId: String
 	var isFinished: Bool
 }
 

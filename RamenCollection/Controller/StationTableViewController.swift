@@ -10,6 +10,7 @@ import UIKit
 
 class StationTableViewController: UITableViewController {
 	var array: [UserStations] = []
+	var stationId: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 		let userId = UserDefaults.standard.string(forKey: "id")
@@ -47,17 +48,10 @@ class StationTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		self.stationId = String(array[indexPath.row].id)
 		performSegue(withIdentifier: "toShopTableViewController", sender: nil)
-		
 	}
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-		if (segue.identifier == "toShopTableViewController") {
-			let nextVC: ShopTableViewController = (segue.destination as? ShopTableViewController)!
-			nextVC.hoge = "hoge"
-		}
-	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 80
@@ -65,6 +59,13 @@ class StationTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		cell.separatorInset = .zero
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+		if (segue.identifier == "toShopTableViewController") {
+			let nextVC: ShopTableViewController = (segue.destination as? ShopTableViewController)!
+			nextVC.stationId = self.stationId
+		}
 	}
 
     /*

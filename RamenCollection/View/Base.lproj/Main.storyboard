@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Prize Collection View Controller-->
+        <!--実績-->
         <scene sceneID="rs0-oH-YVD">
             <objects>
                 <collectionViewController id="d6j-ov-ffS" customClass="PrizeCollectionViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <segue destination="wmg-q7-sz2" kind="show" identifier="toShopTableController" id="o4T-IA-u24"/>
+                                    <segue destination="wmg-q7-sz2" kind="show" identifier="toShopResultTableController" id="o4T-IA-u24"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -40,16 +40,16 @@
                             <outlet property="delegate" destination="d6j-ov-ffS" id="LD3-QA-JgQ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="8BV-yX-1U8"/>
+                    <navigationItem key="navigationItem" title="実績" id="8BV-yX-1U8"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeC-4f-Rgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213.0434782608697" y="904.6875"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Shop Result Table View Controller-->
         <scene sceneID="FBX-Xo-gTS">
             <objects>
-                <tableViewController id="wmg-q7-sz2" sceneMemberID="viewController">
+                <tableViewController id="wmg-q7-sz2" customClass="ShopResultTableViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bco-Fj-FmO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

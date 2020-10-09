@@ -9,7 +9,7 @@
 import UIKit
 
 class ShopResultTableViewController: UITableViewController {
-
+	var stationId: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 

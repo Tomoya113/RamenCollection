@@ -10,19 +10,20 @@ import UIKit
 
 class PrizeCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var textLabel: UILabel!
-    override func awakeFromNib() {
+	@IBOutlet weak var image: UIImageView!
+	override func awakeFromNib() {
         super.awakeFromNib()
 		
     }
 	required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        // cellの枠の太さ
-        self.layer.borderWidth = 1.0
-        // cellの枠の色
-        self.layer.borderColor = UIColor.black.cgColor
-        // cellを丸くする
-        self.layer.cornerRadius = 8.0
+//        // cellの枠の太さ
+//        self.layer.borderWidth = 1.0
+//        // cellの枠の色
+//        self.layer.borderColor = UIColor.black.cgColor
+//        // cellを丸くする
+//        self.layer.cornerRadius = 8.0
     }
 
 }

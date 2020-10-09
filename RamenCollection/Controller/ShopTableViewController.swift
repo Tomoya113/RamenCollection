@@ -9,12 +9,12 @@
 import UIKit
 
 class ShopTableViewController: UITableViewController {
-	var hoge: String = ""
+	var stationId: String = ""
 	var array: GetShops = GetShops(shop: [], shopUserStatus: [])
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let userId = UserDefaults.standard.string(forKey: "id")
-		let request = GetShopsRequest(userId: userId!, stationId: "11")
+		let request = GetShopsRequest(userId: userId!, stationId: self.stationId)
 		APIClient().request(request, completion: {model in
 			DispatchQueue.main.async {
 				self.array.shop = model!.shop
@@ -43,7 +43,12 @@ class ShopTableViewController: UITableViewController {
 //		print(array.shopUserStatus)
 		cell.textLabel!.text = array.shop[indexPath.row].name
 		cell.tag = array.shopUserStatus[indexPath.row].id
-		let stationImage = UIImage(named: "OrangeStation.png")!
+		let stationImage: UIImage;
+		if array.shopUserStatus[indexPath.row].isFinished {
+			stationImage = UIImage(named: "OrangeStation.png")!
+		} else {
+			stationImage = UIImage(named: "BlueStation.png")!
+		}
 		cell.imageView!.image = stationImage.resize(size: CGSize(width: 50, height: 50))
 		return cell
 		
@@ -75,7 +80,15 @@ class ShopTableViewController: UITableViewController {
         // シェアのアクションを設定する
         let doneAction = UIContextualAction(style: .normal  , title: "完食") {
             (ctxAction, view, completionHandler) in
-             print("シェアを実行する")
+			let userId = UserDefaults.standard.string(forKey: "id")!
+			let shopId = self.array.shopUserStatus[indexPath.row].shopId
+			self.array.shopUserStatus[indexPath.row].isFinished.toggle()
+			let request = FinishRequest(userId: userId, shopId: shopId)
+			APIClient().request(request, completion: {model in
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+				}
+			})
             completionHandler(true)
         }
         // シェアボタンのデザインを設定する
