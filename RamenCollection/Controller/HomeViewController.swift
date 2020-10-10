@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
 		mapView.translatesAutoresizingMaskIntoConstraints = false
 		return mapView
 	}()
-	
+	var shops: [ShopInformation] = []
+	var shopAnnotations: [Shop] = []
     fileprivate func setupUI() {
         view.addSubview(mapView)
         mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -24,7 +25,6 @@ class HomeViewController: UIViewController {
         mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-	
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = UserDefaults.standard.string(forKey: "id")
@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
 						let longitude = Double(model!.station.longitude)
 						let location = CLLocationCoordinate2DMake(latitude!, longitude!)
 						self.mapView.setCenter(location, animated:true)
-						
+						self.shops = model!.shops
 						var region = self.mapView.region
 						region.center = location
 						region.span.latitudeDelta = 0.005
@@ -70,6 +70,15 @@ class HomeViewController: UIViewController {
 						station.coordinate = location
 						station.title = model!.station.name
 						self.mapView.addAnnotation(station)
+						for shop in self.shops {
+							let latitude = Double(shop.latitude)
+							let longitude = Double(shop.longitude)
+							let location = CLLocationCoordinate2DMake(latitude!, longitude!)
+							let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
+//							self.shopAnnotations.append(shopAnnotation)
+							self.mapView.addAnnotation(shopAnnotation)
+						}
+						
 						self.setupUI()
 					}
 				case let .failure(error):
