@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "cell"
 
 class PrizeCollectionViewController: UICollectionViewController {
-	var array: [Stations] = []
+	var array: [UserStations] = []
 	var stationId: String = ""
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,8 @@ class PrizeCollectionViewController: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
 		layout.itemSize = CGSize(width: 100, height: 100)
 		self.collectionView.collectionViewLayout = layout
-		let request = GetStationsRequest()
+		let userId = UserDefaults.standard.string(forKey: "id")
+		let request = UserStationsRequest(userId: userId!)
 		APIClient().request(request, completion: {result in
 			switch(result) {
 			case let .success(model):

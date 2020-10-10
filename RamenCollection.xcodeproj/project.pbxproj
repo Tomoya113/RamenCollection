@@ -11,6 +11,7 @@
 		717B686B2530CB1D0053B605 /* Finish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B686A2530CB1D0053B605 /* Finish.swift */; };
 		717B686D2531C0420053B605 /* ShopResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B686C2531C0420053B605 /* ShopResultViewController.swift */; };
 		717B686F2531C21C0053B605 /* GetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B686E2531C21C0053B605 /* GetResult.swift */; };
+		717B6871253208140053B605 /* GetStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B6870253208140053B605 /* GetStation.swift */; };
 		719FDFAA252CC05D00A3B1AC /* StationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFA9252CC05D00A3B1AC /* StationTableViewController.swift */; };
 		719FDFAC252CC6C100A3B1AC /* ShopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFAB252CC6C100A3B1AC /* ShopTableViewController.swift */; };
 		719FDFAE252CCE9200A3B1AC /* PrizeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719FDFAD252CCE9200A3B1AC /* PrizeCollectionViewController.swift */; };
@@ -35,6 +36,7 @@
 		717B686A2530CB1D0053B605 /* Finish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finish.swift; sourceTree = "<group>"; };
 		717B686C2531C0420053B605 /* ShopResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResultViewController.swift; sourceTree = "<group>"; };
 		717B686E2531C21C0053B605 /* GetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetResult.swift; sourceTree = "<group>"; };
+		717B6870253208140053B605 /* GetStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStation.swift; sourceTree = "<group>"; };
 		719FDFA9252CC05D00A3B1AC /* StationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewController.swift; sourceTree = "<group>"; };
 		719FDFAB252CC6C100A3B1AC /* ShopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewController.swift; sourceTree = "<group>"; };
 		719FDFAD252CCE9200A3B1AC /* PrizeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				717B686825303F8A0053B605 /* GetShops.swift */,
 				717B686A2530CB1D0053B605 /* Finish.swift */,
 				717B686E2531C21C0053B605 /* GetResult.swift */,
+				717B6870253208140053B605 /* GetStation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				719FDFAC252CC6C100A3B1AC /* ShopTableViewController.swift in Sources */,
 				719FDFB3252CED7500A3B1AC /* PrizeCollectionViewCell.swift in Sources */,
 				71DB12D92529E472008AD9DE /* SceneDelegate.swift in Sources */,
+				717B6871253208140053B605 /* GetStation.swift in Sources */,
 				71DB0A6F252A67430081EE00 /* MapViewController.swift in Sources */,
 				71DB0A71252A6F610081EE00 /* Shop.swift in Sources */,
 			);
