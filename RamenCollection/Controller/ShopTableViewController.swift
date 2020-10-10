@@ -15,11 +15,25 @@ class ShopTableViewController: UITableViewController {
 		super.viewDidLoad()
 		let userId = UserDefaults.standard.string(forKey: "id")
 		let request = GetShopsRequest(userId: userId!, stationId: self.stationId)
-		APIClient().request(request, completion: {model in
-			DispatchQueue.main.async {
-				self.array.shop = model!.shop
-				self.array.shopUserStatus = model!.shopUserStatus
-				self.tableView.reloadData()
+		APIClient().request(request, completion: {result in
+			switch(result) {
+			case let .success(model):
+				DispatchQueue.main.async {
+					self.array.shop = model!.shop
+					self.array.shopUserStatus = model!.shopUserStatus
+					self.tableView.reloadData()
+				}
+			case let .failure(error):
+				switch error {
+				case let .server(status):
+					print("Error!! StatusCode: \(status)")
+				case .noResponse:
+					print("Error!! No Response")
+				case let .unknown(e):
+					print("Error!! Unknown: \(e)")
+				default:
+					print("Error!! \(error)")
+				}
 			}
 		})
 		

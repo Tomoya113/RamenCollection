@@ -7,28 +7,41 @@
 //
 
 import Foundation
+
+enum APIError: Error {
+	case server(Int)
+	case decode(Error)
+	case noResponse
+	case unknown(Error)
+}
+
 class APIClient {
-    func request<T: Requestable>(_ requestable: T, completion: @escaping(T.Model?) -> Void) {
+    func request<T: Requestable>(_ requestable: T, completion: @escaping(Result<T.Model?, APIError>) -> Void) {
         guard let request = requestable.urlRequest else { return }
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
 
             if let error = error {
-                print("クライアントエラー: \(error.localizedDescription) \n")
+				completion(.failure(APIError.unknown(error)))
                 return
             }
 
             guard let data = data, let response = response as? HTTPURLResponse else {
-                print("no data or no response")
+				completion(.failure(APIError.noResponse))
                 return
             }
 
-            if response.statusCode == 200 {
-                let model = try? requestable.decode(from: data)
-                completion(model)
+			if case 200..<300 = response.statusCode {
+				do {
+					let model = try requestable.decode(from: data)
+					completion(.success(model))
+				} catch let decodeError {
+					completion(.failure(APIError.decode(decodeError)))
+				}
+                
             } else {
                 // レスポンスのステータスコードが200でない場合などはサーバサイドエラー
-                print("サーバエラー ステータスコード: \(response.statusCode)\n")
+				completion(.failure(APIError.server(response.statusCode)))
             }
         })
         task.resume()

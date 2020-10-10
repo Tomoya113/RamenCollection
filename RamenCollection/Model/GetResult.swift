@@ -11,12 +11,14 @@ import Foundation
 struct GetResult: Codable {
 	var shop: [ShopName]
 	var shopUserStatus: [ShopUserStatus]
+	var shopCount: Int
+	var finished: Int
 }
 
 
 struct GetResultRequest: Requestable {
 	
-	typealias Model = GetShops
+	typealias Model = GetResult
     var userId: String
 	var stationId: String
     
@@ -47,10 +49,10 @@ struct GetResultRequest: Requestable {
 //        return array
 //    }
 	
-    func decode(from data: Data) throws -> GetShops {
+    func decode(from data: Data) throws -> GetResult {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode(GetShops.self, from: data)
+        return try decoder.decode(GetResult.self, from: data)
     }
 }
 

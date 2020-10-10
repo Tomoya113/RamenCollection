@@ -46,10 +46,24 @@ class SelectStationTableViewController: UITableViewController {
 	
 	func setup() -> Void {
 		let request = GetStationsRequest()
-		APIClient().request(request, completion: {model in
-			DispatchQueue.main.async {
-				self.array = model!
-				self.tableView.reloadData()
+		APIClient().request(request, completion: {result in
+			switch(result) {
+			case let .success(model):
+				DispatchQueue.main.async {
+					self.array = model!
+					self.tableView.reloadData()
+				}
+			case let .failure(error):
+				switch error {
+				case let .server(status):
+					print("Error!! StatusCode: \(status)")
+				case .noResponse:
+					print("Error!! No Response")
+				case let .unknown(e):
+					print("Error!! Unknown: \(e)")
+				default:
+					print("Error!! \(error)")
+				}
 			}
 		})
 	}
