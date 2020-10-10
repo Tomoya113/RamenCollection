@@ -67,12 +67,12 @@ class PrizeCollectionViewController: UICollectionViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.stationId = String(array[indexPath.row].id)
-		performSegue(withIdentifier: "toShopResultTableController", sender: nil)
+		performSegue(withIdentifier: "toShopResultViewController", sender: nil)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-		if (segue.identifier == "toShopResultTableController") {
-			let nextVC: ShopResultTableViewController = (segue.destination as? ShopResultTableViewController)!
+		if (segue.identifier == "toShopResultViewController") {
+			let nextVC: ShopResultViewController = (segue.destination as? ShopResultViewController)!
 			nextVC.stationId = self.stationId
 		}
 	}

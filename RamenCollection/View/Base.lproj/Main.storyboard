@@ -30,9 +30,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
-                                <connections>
-                                    <segue destination="wmg-q7-sz2" kind="show" identifier="toShopResultTableController" id="o4T-IA-u24"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -41,39 +38,55 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="実績" id="8BV-yX-1U8"/>
+                    <connections>
+                        <segue destination="asM-Wf-kra" kind="show" identifier="toShopResultViewController" id="yNG-vT-QLG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeC-4f-Rgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213.0434782608697" y="904.6875"/>
         </scene>
-        <!--Shop Result Table View Controller-->
-        <scene sceneID="FBX-Xo-gTS">
+        <!--Shop Result View Controller-->
+        <scene sceneID="Ctn-K9-S28">
             <objects>
-                <tableViewController id="wmg-q7-sz2" customClass="ShopResultTableViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bco-Fj-FmO">
+                <viewController id="asM-Wf-kra" customClass="ShopResultViewController" customModule="RamenCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x7i-EC-xVb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7xf-Ji-477">
+                                <rect key="frame" x="0.0" y="136" width="414" height="677"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J22-fv-qa3">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J22-fv-qa3" id="JTq-co-4tf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="達成率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhX-ae-wpt">
+                                <rect key="frame" x="8" y="99" width="97" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KBG-6y-zsn">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KBG-6y-zsn" id="Tkk-HG-VDt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="wmg-q7-sz2" id="SQt-NJ-fnS"/>
-                            <outlet property="delegate" destination="wmg-q7-sz2" id="glD-m8-Q8S"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="m4Z-KQ-jv8"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F3r-fS-iTI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="WhX-ae-wpt" firstAttribute="leading" secondItem="3w3-FT-Fnn" secondAttribute="leading" constant="8" id="3lC-en-ySN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3w3-FT-Fnn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ov3-Vd-yrm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIK-rE-Nsp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="905"/>
+            <point key="canvasLocation" x="2056.521739130435" y="904.6875"/>
         </scene>
         <!--進捗-->
         <scene sceneID="ieA-i1-MGc">
