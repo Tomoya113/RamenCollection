@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
 	var shops: [ShopInformation] = []
 	var station: Station!
 	var shopAnnotations: [Shop] = []
+	var shopUserStatus: [ShopUserStatus] = []
 	fileprivate func setupUI() {
 		view.addSubview(mapView)
 		mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -39,17 +40,19 @@ class HomeViewController: UIViewController {
 		station.coordinate = location
 		station.title = self.station.name
 		mapView.addAnnotation(station)
-		for shop in self.shops {
+		for (index, shop) in self.shops.enumerated() {
 			let latitude = Double(shop.latitude)
 			let longitude = Double(shop.longitude)
 			let location = CLLocationCoordinate2DMake(latitude!, longitude!)
-			let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
+//			let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
+			let shopAnnotation = Shop.init(title: shop.name, coordinate: location, isFinished: self.shopUserStatus[index].isFinished)
 			//							self.shopAnnotations.append(shopAnnotation)
 			mapView.addAnnotation(shopAnnotation)
 		}
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.mapView.delegate = self
 		let currentUser = UserDefaults.standard.string(forKey: "id")
 		if currentUser == nil {
 			let request = CreateUserRequest()
@@ -79,6 +82,7 @@ class HomeViewController: UIViewController {
 					DispatchQueue.main.async {
 						self.shops = model!.shops
 						self.station = model!.station
+						self.shopUserStatus = model!.shopUserStatus
 						self.setupUI()
 					}
 					
@@ -118,4 +122,18 @@ private extension MKMapView {
 			longitudinalMeters: regionRadius)
 		setRegion(coordinateRegion, animated: true)
 	}
+}
+
+extension HomeViewController: MKMapViewDelegate {
+  // annotationの詳細のinfoボタンが押されたら呼ばれるメソッド
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    guard let shop = view.annotation as? Shop else {
+      return
+    }
+    
+    let launchOptions = [
+      MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+    ]
+    shop.mapItem?.openInMaps(launchOptions: launchOptions)
+  }
 }

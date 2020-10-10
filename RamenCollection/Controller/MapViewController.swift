@@ -37,8 +37,8 @@ class MapViewController: UIViewController {
         station.title = "梅田駅"
         mapView.addAnnotation(station)
         
-        let shop = Shop(title: "煮干しラーメン玉五郎 阪急三番街店", coordinate: CLLocationCoordinate2D(latitude: 34.7045383, longitude: 135.4973547))
-        mapView.addAnnotation(shop)
+//        let shop = Shop(title: "煮干しラーメン玉五郎 阪急三番街店", coordinate: CLLocationCoordinate2D(latitude: 34.7045383, longitude: 135.4973547))
+//        mapView.addAnnotation(shop)
         mapView.register(
         ShopMarkerView.self,
         forAnnotationViewWithReuseIdentifier:
