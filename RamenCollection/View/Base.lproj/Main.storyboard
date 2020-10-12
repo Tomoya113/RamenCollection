@@ -291,11 +291,11 @@
             </objects>
             <point key="canvasLocation" x="302.89855072463769" y="-518.30357142857144"/>
         </scene>
-        <!--Item-->
+        <!--Ramen-->
         <scene sceneID="Wzr-kW-Hkf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Xk-PS-zwM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="noodles" id="Hu7-eN-Fd4"/>
+                    <tabBarItem key="tabBarItem" title="Ramen" image="noodles" id="Hu7-eN-Fd4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fth-hU-0pa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -310,11 +310,11 @@
             </objects>
             <point key="canvasLocation" x="303" y="216"/>
         </scene>
-        <!--Item-->
+        <!--Prize-->
         <scene sceneID="9Ao-jR-BYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9FS-fo-e7O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="prize" id="X72-ph-n05"/>
+                    <tabBarItem key="tabBarItem" title="Prize" image="prize" id="X72-ph-n05"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="liU-A5-4Sn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

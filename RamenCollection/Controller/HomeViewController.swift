@@ -44,9 +44,7 @@ class HomeViewController: UIViewController {
 			let latitude = Double(shop.latitude)
 			let longitude = Double(shop.longitude)
 			let location = CLLocationCoordinate2DMake(latitude!, longitude!)
-			//			let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
 			let shopAnnotation = Shop.init(title: shop.name, coordinate: location, isFinished: self.shopUserStatus[index].isFinished)
-			//							self.shopAnnotations.append(shopAnnotation)
 			mapView.addAnnotation(shopAnnotation)
 		}
 		
