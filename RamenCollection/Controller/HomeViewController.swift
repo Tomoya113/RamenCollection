@@ -44,11 +44,12 @@ class HomeViewController: UIViewController {
 			let latitude = Double(shop.latitude)
 			let longitude = Double(shop.longitude)
 			let location = CLLocationCoordinate2DMake(latitude!, longitude!)
-//			let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
+			//			let shopAnnotation = Shop.init(title: shop.name, coordinate: location)
 			let shopAnnotation = Shop.init(title: shop.name, coordinate: location, isFinished: self.shopUserStatus[index].isFinished)
 			//							self.shopAnnotations.append(shopAnnotation)
 			mapView.addAnnotation(shopAnnotation)
 		}
+		
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -75,6 +76,64 @@ class HomeViewController: UIViewController {
 				}
 			})
 		} else {
+			print(currentUser!)
+			let request = GetStationRequest(userId: currentUser!)
+			APIClient().request(request, completion: {result in
+				switch(result) {
+				case let .success(model):
+					DispatchQueue.main.async {
+						self.shops = model!.shops
+						self.station = model!.station
+						self.shopUserStatus = model!.shopUserStatus
+						self.setupUI()
+					}
+					
+					self.mapView.register(
+						ShopMarkerView.self,
+						forAnnotationViewWithReuseIdentifier:
+						MKMapViewDefaultAnnotationViewReuseIdentifier)
+				case let .failure(error):
+					switch error {
+					case let .server(status):
+						print("Error!! StatusCode: \(status)")
+					case .noResponse:
+						print("Error!! No Response")
+					case let .unknown(e):
+						print("Error!! Unknown: \(e)")
+					default:
+						print("Error!! \(error)")
+					}
+				}
+			})
+		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.mapView.delegate = self
+		let currentUser = UserDefaults.standard.string(forKey: "id")
+		if currentUser == nil {
+			let request = CreateUserRequest()
+			APIClient().request(request, completion: {result in
+				switch(result) {
+				case let .success(model):
+					print(model!.id)
+					UserDefaults.standard.set(String(model!.id), forKey: "id")
+				case let .failure(error):
+					switch error {
+					case let .server(status):
+						print("Error!! StatusCode: \(status)")
+					case .noResponse:
+						print("Error!! No Response")
+					case let .unknown(e):
+						print("Error!! Unknown: \(e)")
+					default:
+						print("Error!! \(error)")
+					}
+				}
+			})
+		} else {
+			print(currentUser)
 			let request = GetStationRequest(userId: currentUser!)
 			APIClient().request(request, completion: {result in
 				switch(result) {
@@ -125,15 +184,15 @@ private extension MKMapView {
 }
 
 extension HomeViewController: MKMapViewDelegate {
-  // annotationの詳細のinfoボタンが押されたら呼ばれるメソッド
-  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-    guard let shop = view.annotation as? Shop else {
-      return
-    }
-    
-    let launchOptions = [
-      MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
-    ]
-    shop.mapItem?.openInMaps(launchOptions: launchOptions)
-  }
+	// annotationの詳細のinfoボタンが押されたら呼ばれるメソッド
+	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+		guard let shop = view.annotation as? Shop else {
+			return
+		}
+		
+		let launchOptions = [
+			MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+		]
+		shop.mapItem?.openInMaps(launchOptions: launchOptions)
+	}
 }

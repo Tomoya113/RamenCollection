@@ -276,7 +276,7 @@
         <scene sceneID="XMp-Ls-FEX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0cy-aB-gAH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="pencil" catalog="system" id="Vcl-gC-1RB"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Vcl-gC-1RB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X3R-5G-6Q1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -295,7 +295,7 @@
         <scene sceneID="Wzr-kW-Hkf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Xk-PS-zwM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="folder" catalog="system" id="Hu7-eN-Fd4"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="noodles" id="Hu7-eN-Fd4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fth-hU-0pa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -314,7 +314,7 @@
         <scene sceneID="9Ao-jR-BYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9FS-fo-e7O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="tray.fill" catalog="system" id="X72-ph-n05"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="prize" id="X72-ph-n05"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="liU-A5-4Sn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -331,8 +331,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder" catalog="system" width="128" height="95"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="tray.fill" catalog="system" width="128" height="88"/>
+        <image name="home" width="25" height="25"/>
+        <image name="noodles" width="25" height="25"/>
+        <image name="prize" width="25" height="25"/>
     </resources>
 </document>
